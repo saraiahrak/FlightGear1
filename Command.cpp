@@ -16,6 +16,7 @@
 
 using namespace std;
 
+//set skip to command
 void Command::setSkip(int n) {
     this->skip = n;
 }
