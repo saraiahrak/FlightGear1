@@ -9,6 +9,7 @@
 
 using namespace std;
 
+//Add a command to the commands map
 void Commands::add(string key, Command *val) {
     auto it = myMap.find(key);
     if (it == myMap.end()) {
@@ -18,6 +19,7 @@ void Commands::add(string key, Command *val) {
     }
 }
 
+//get a command from map by name
 Command *Commands::getCommand(string key) {
     if (myMap.find(key) == myMap.end()) {
         cerr << "key not in map";
@@ -27,6 +29,7 @@ Command *Commands::getCommand(string key) {
     }
 }
 
+//initialize map of commands
 void Commands::initMap() {
     add("openDataServer", new OpenSeverCommand());
     add("connectControlClient", new ConnectCommand());

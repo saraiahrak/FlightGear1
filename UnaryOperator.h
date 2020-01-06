@@ -7,9 +7,10 @@
 
 #include "Expression.h"
 
-/*
-Unary expression.
-*/
+/**
+ * Unary Operator class
+ * Expressions with unary operator
+ **/
 class UnaryOperator : public Expression {
 protected:
     Expression *expression = nullptr;

@@ -6,16 +6,17 @@
 
 #include "Expression.h"
 
-/*
-Value expression.
-*/
+/**
+ * Value class
+ **/
+
 class Value : public Expression {
 private:
     float value;
 public:
     Value(float value);
 
-    float calculate();
+    float calculate() override;
 };
 
 #endif //EX3_VALUE_H

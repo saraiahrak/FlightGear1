@@ -8,6 +8,11 @@
 
 using namespace std;
 
+/**
+ * Utils class
+ * Util methods for program
+ **/
+
 /*
 delete the spaces on the beginning of the string
 */

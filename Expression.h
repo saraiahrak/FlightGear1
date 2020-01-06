@@ -14,9 +14,11 @@ using namespace std;
 class Expression {
 
 public:
+    //calculte method
     virtual float calculate() = 0;
 
-    virtual ~Expression() {}
+    //destructor
+    virtual ~Expression() = default;
 };
 
 #endif //EX3_EXPRESSION_H

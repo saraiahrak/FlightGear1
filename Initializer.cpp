@@ -13,9 +13,7 @@
 
 using namespace std;
 
-/**
- * Initializer class functions
- **/
+
 bool Initializer::stop;
 
 map<string, float>Initializer::variableValue;
@@ -32,17 +30,17 @@ mutex Initializer::pathLock;
 
 mutex Initializer::directLock;
 
-/*
-data flow analysis
-*/
+
+//Constructor
 Initializer::Initializer() {
+    //initialize XML table
     initializeXML();
+    //set the stop program flag
     setStop(false);
 }
 
-/*
-Creates a vector of strings for all the possible variables paths
-*/
+
+//Creates a vector of strings for all the possible variables paths
 void Initializer::initializeXML() {
     // by the generic_small file
     xmlVals.emplace_back("/instrumentation/airspeed-indicator/indicated-speed-kt");
@@ -83,17 +81,14 @@ void Initializer::initializeXML() {
     xmlVals.emplace_back("/engines/engine/rpm");
 }
 
-/*
-set stop
-*/
+//set program stop
 void Initializer::setStop(bool s) {
     Initializer::stop = s;
 }
 
-/*
-Insert the string into the parameters vector of the program while
-the given string is separate to his name and value
-*/
+
+//Insert the string into the parameters vector of the program while
+//the given string is separate to his name and value
 vector<string> Initializer::isVariable(string line, vector<string> tokens) {
     size_t posSpace = 0, posResult = 0, current = 0, posVar = 0, newPos = 0;
     posSpace = line.find(" ");
@@ -144,9 +139,8 @@ vector<string> Initializer::isVariable(string line, vector<string> tokens) {
     return tokens;
 }
 
-/*
-splits the lines in the file to tokens and returns the result
-*/
+
+//splits the lines in the file to tokens and returns the result
 vector<string> Initializer::lexer(const char *fileName) {
     ifstream fptr;
     vector<string> strLines, tokens;
